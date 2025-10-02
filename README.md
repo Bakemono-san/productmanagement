@@ -196,11 +196,25 @@ The application uses cookie-based authentication with middleware protection:
 
 ## 🤝 Contributing
 
+We welcome contributions from the community! Please read our [Contributing Guidelines](CONTRIBUTING.md) for detailed information on:
+
+- Setting up the development environment
+- Coding standards and best practices
+- Pull request process
+- Issue reporting guidelines
+- Testing requirements
+
+Quick start for contributors:
+
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
+3. Make your changes following our coding standards
+4. Test your changes: `npm run lint && npm run build`
+5. Commit your changes: `git commit -m 'Add amazing feature'`
+6. Push to the branch: `git push origin feature/amazing-feature`
+7. Open a Pull Request
+
+For detailed guidelines, please see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## 📝 License
 
