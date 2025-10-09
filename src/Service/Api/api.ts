@@ -1,7 +1,15 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 import { Category, Product, ProductSales, Sales } from "@/types/type";
-
+/**
+ * Fetches all products from the API.
+ * 
+ * @returns {Promise<Product[]>} A promise that resolves to an array of products
+ * @throws {Error} When the API request fails or returns a non-OK status
+ * 
+ * @example
+ * const products = await fetchProducts();
+ */
 const fetchProducts = async (): Promise<Product[]> => {
   const res = await fetch("http://localhost:2002/products", {
     credentials: "include",
@@ -12,7 +20,15 @@ const fetchProducts = async (): Promise<Product[]> => {
   const json = await res.json();
   return json.data;
 };
-
+/**
+ * Fetches all categories from the API.
+ * 
+ * @returns {Promise<Category[]>} A promise that resolves to an array of categories
+ * @throws {Error} When the API request fails or returns a non-OK status
+ * 
+ * @example
+ * const categories = await fetchCategories();
+ */
 const fetchCategories = async (): Promise<Category[]> => {
   const res = await fetch("http://localhost:2002/categories", {
     credentials: "include",
@@ -23,7 +39,20 @@ const fetchCategories = async (): Promise<Category[]> => {
   const json = await res.json();
   return json.data;
 };
-
+/**
+ * Creates a new product in the database.
+ * 
+ * @param {Product} product - The product object to create
+ * @returns {Promise<Product>} A promise that resolves to the created product
+ * @throws {Error} When the API request fails or returns a non-OK status
+ * 
+ * @example
+ * const newProduct = await CreateProduct({
+ *   name: "Product Name",
+ *   price: 99.99,
+ *   categoryId: 1
+ * });
+ */
 export const CreateProduct = async (product: Product) => {
   const res = await fetch("http://localhost:2002/create-product", {
     method: "POST",
@@ -38,7 +67,19 @@ export const CreateProduct = async (product: Product) => {
   const json = await res.json();
   return json.data;
 };
-
+/**
+ * Creates a new category in the database.
+ * 
+ * @param {Category} category - The category object to create
+ * @returns {Promise<Category>} A promise that resolves to the created category
+ * @throws {Error} When the API request fails or returns a non-OK status
+ * 
+ * @example
+ * const newCategory = await CreateCategory({
+ *   name: "Electronics",
+ *   description: "Electronic devices and accessories"
+ * });
+ */
 export const CreateCategory = async (category: Category) => {
   const res = await fetch("http://localhost:2002/create-category", {
     method: "POST",
