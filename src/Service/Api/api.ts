@@ -94,6 +94,19 @@ export const CreateCategory = async (category: Category) => {
   const json = await res.json();
   return json.data;
 };
+/**
+ * Updates an existing category in the database.
+ * 
+ * @param {number} id - The ID of the category to update
+ * @param {Partial<Category>} category - The partial category object containing fields to update
+ * @returns {Promise<Category>} A promise that resolves to the updated category
+ * @throws {Error} When the API request fails or returns a non-OK status
+ * 
+ * @example
+ * const updatedCategory = await EditCategory(1, {
+ *   name: "Updated Category Name"
+ * });
+ */
 
 export const EditCategory = async (id: number, category: Partial<Category>) => {
   const res = await fetch(`http://localhost:2002/update-category?id=${id}`, {
@@ -109,7 +122,16 @@ export const EditCategory = async (id: number, category: Partial<Category>) => {
   const json = await res.json();
   return json.data;
 };
-
+/**
+ * Deletes a category from the database.
+ * 
+ * @param {number} id - The ID of the category to delete
+ * @returns {Promise<any>} A promise that resolves to the deletion response data
+ * @throws {Error} When the API request fails or deletion is unsuccessful
+ * 
+ * @example
+ * await DeleteCategory(1);
+ */
 export const DeleteCategory = async (id: number) => {
   const res = await fetch(`http://localhost:2002/delete-category?id=${id}`, {
     method: "DELETE",
